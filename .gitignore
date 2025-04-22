@@ -5,7 +5,8 @@
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-/[Ll]ibrary/
+/[Ll]ibrary/*
+!/[Ll]ibrary/[Pp]ackageCache/voice2action@ae562397a9/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -19,6 +20,10 @@
 
 # Recordings can get excessive in size
 /[Rr]ecordings/
+
+# OpenAI Configuration
+/[Aa]ssets/OpenAIConfiguration.asset
+/[Aa]ssets/OpenAIConfiguration.asset.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
