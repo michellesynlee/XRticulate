@@ -6,6 +6,8 @@
 1. Take the following scripts in the Library PackageCache/voice2action@ae562397a9 folder and replace the respective scripts in Packages/Voice2Action/Runtime:
 
 - VoiceIntentController
+https://github.com/michellesynlee/XRticulate/blob/main/Library/PackageCache/voice2action%40ae562397a9/Runtime/VoiceIntentController.cs
+
 
 
 
