@@ -3,4 +3,27 @@
 
 # Project Setup
 
-1. Take the scripts in the Assets/Voice2Action folder and replace the ones in the Runtime folder
+1. Take the following scripts in the Library PackageCache/voice2action@ae562397a9 folder and replace the respective scripts in Packages/Voice2Action/Runtime:
+
+- VoiceIntentController
+
+
+
+2. Set up OpenAPI key and Organization Id:
+
+Go to Assets -> Resources -> OpenAIConfiguration then paste in the values
+
+
+
+3. Scenes
+
+Main scene: Packages/Voice2Action/Samples/Starter Assets/Starter Scene Complete
+
+
+# Debugging
+
+1. Rendering Issues
+
+If the materials look pink, you must convert the shader:
+
+Edit -> Rendering -> Materials -> Convert
