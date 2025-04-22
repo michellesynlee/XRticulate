@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "com.openai.unity": "8.6.5",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.feature.vr": "1.0.0",
+    "com.unity.ide.cursor": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.learn.iet-framework": "3.1.3",
     "com.unity.render-pipelines.universal": "14.0.11",
@@ -11,7 +13,9 @@
     "com.unity.visualscripting": "1.9.4",
     "com.unity.xr.interaction.toolkit": "3.0.3",
     "com.unity.xr.management": "4.4.0",
+    "com.unity.xr.oculus": "4.5.1",
     "com.unity.xr.openxr": "1.14.0",
+    "voice2action": "https://github.com/yang-su2000/Voice2Action.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -43,5 +47,15 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "OpenUPM",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.openai",
+        "com.utilities"
+      ]
+    }
+  ]
 }
