@@ -22,8 +22,8 @@
 /[Rr]ecordings/
 
 # OpenAI Configuration
-/[Aa]ssets/OpenAIConfiguration.asset
-/[Aa]ssets/OpenAIConfiguration.asset.meta
+/[Aa]ssets/Resources/OpenAIConfiguration.asset
+/[Aa]ssets/Resources/OpenAIConfiguration.asset.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
