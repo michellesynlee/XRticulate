@@ -270,7 +270,7 @@ namespace Voice2Action
             var request = new AudioTranscriptionRequest(audioClip, language: "en");
             try
             {
-                var result = await Utils.openAIClient.AudioEndpoint.CreateTranscriptionTextAsync(request);
+                var result = await Utils.openAIClient.AudioEndpoint.CreateTranscriptionAsync(request);
                 Debug.Log("Whisper: " + result);
                 m_OpenAIStatus = true;
                 return result;
