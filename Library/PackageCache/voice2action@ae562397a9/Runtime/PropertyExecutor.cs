@@ -86,8 +86,8 @@ namespace Voice2Action
                     ),
                 }),
             new FunctionCallGroup(
-                functionName: "ModifyPosition",
-                functionDescription: "Return the positional change.",
+                functionName: "ModifyPositionX",
+                functionDescription: "Return the X-axis positional change.",
                 functionParams: new List<FunctionParamGroup>
                 {
                     new (
@@ -95,8 +95,40 @@ namespace Voice2Action
                         paramDescription: "the strength of modification.",
                         paramExamples: new List<Utils.FewShotPair>
                         {
-                            new (input: "three times further", output: "3"),
-                            new (input: "super far", output: "5"),
+                            new (input: "left", output: "-1"),
+                            new (input: "right", output: "1"),
+                            new (input: "to the left", output: "-1"),
+                        }
+                    ),
+                }),
+            new FunctionCallGroup(
+                functionName: "ModifyPositionY",
+                functionDescription: "Return the Y-axis positional change.",
+                functionParams: new List<FunctionParamGroup>
+                {
+                    new (
+                        paramName: "value",
+                        paramDescription: "the strength of modification.",
+                        paramExamples: new List<Utils.FewShotPair>
+                        {
+                            new (input: "up", output: "1"),
+                            new (input: "down", output: "-1"),
+                            new (input: "higher", output: "1"),
+                        }
+                    ),
+                }),
+            new FunctionCallGroup(
+                functionName: "ModifyPositionZ",
+                functionDescription: "Return the Z-axis positional change.",
+                functionParams: new List<FunctionParamGroup>
+                {
+                    new (
+                        paramName: "value",
+                        paramDescription: "the strength of modification.",
+                        paramExamples: new List<Utils.FewShotPair>
+                        {
+                            new (input: "forward", output: "1"),
+                            new (input: "backward", output: "-1"),
                             new (input: "closer", output: "-1"),
                         }
                     ),
@@ -112,7 +144,7 @@ namespace Voice2Action
         
         /// <value>System instruction for the execution model.</value>
         public const string k_ExecutionInstruction =
-            "You convert instructions to structured function calls. Your response must contain only the provided functions.";
+            "You are a function calling assistant. Your task is to convert user instructions into structured function calls using ONLY the provided functions. You must respond with a function call - do not provide any other text or explanation. Each response must use exactly one of the available functions.";
         
         /// <summary>
         /// A group containing essential elements for executing a property function.
@@ -568,6 +600,33 @@ namespace Voice2Action
                 for (var i = 0; i < allControllers.Length; i++)
                 {
                     if (!selectedControllers[i]) continue;
+                    
+                    // Check the type of the object by checking its parent
+                    Transform parent = allControllers[i].transform.parent;
+                    if (parent != null)
+                    {
+                        // Check for specific shape types
+                        if (parent.name == "Spheres")
+                        {
+                            // If it's a sphere, keep it selected
+                            selectedControllers[i] = true;
+                        }
+                        else if (parent.name == "Cubes")
+                        {
+                            // If it's a cube, keep it selected
+                            selectedControllers[i] = true;
+                        }
+                        else if (parent.name == "Buildings")
+                        {
+                            // If it's a rectangle, keep it selected
+                            selectedControllers[i] = true;
+                        }
+                        else
+                        {
+                            // If it's not a specific shape type, deselect it
+                            selectedControllers[i] = false;
+                        }
+                    }
                     
                     if (comparisonPos != -1)
                     {

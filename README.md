@@ -9,6 +9,12 @@
 https://github.com/michellesynlee/XRticulate/blob/main/Library/PackageCache/voice2action%40ae562397a9/Runtime/VoiceIntentController.cs
 
 
+- ShapeController
+
+- PropertyExtractor
+
+- PropertyExecutor
+
 
 
 2. Set up OpenAPI key and Organization Id:
@@ -29,3 +35,9 @@ Main scene: Packages/Voice2Action/Samples/Starter Assets/Starter Scene Complete
 If the materials look pink, you must convert the shader:
 
 Edit -> Rendering -> Materials -> Convert
+
+Then drag the material onto each element of the scene
+
+2. Cannot open scene in read-only
+
+Go to package manager -> voice2action -> samples and reimport the folder

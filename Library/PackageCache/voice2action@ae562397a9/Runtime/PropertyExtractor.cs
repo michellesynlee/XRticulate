@@ -77,34 +77,60 @@ namespace Voice2Action
             },
             orderedProperties: new List<(int, string)>
             {
-                // ------------Added for CityDemo in MyShapeController, user can define their own through code or hierarchy------------
-                // RGB values
-                // example instances: "red", "green", "dark blue", "cyan", "light yellow", "white", "colorful",
-                // (10, "ModifyColor"),
-                // ------------Added for CityDemo in MyShapeController, user can define their own through code or hierarchy------------
-                
                 // 3-DOF transform
                 // example instances: "taller", "much bigger", "a bit smaller",
                 (10, "ModifyScale"),
-                // 1-DOF positional transform to the player
-                // example instances: "much closer", "a bit further",
-                (10, "ModifyPosition"),
+                // X-axis position transform
+                // example instances: "left", "right", "to the left", "to the right",
+                (10, "ModifyPositionX"),
+                // Y-axis position transform
+                // example instances: "up", "down", "higher", "lower",
+                (10, "ModifyPositionY"),
+                // Z-axis position transform
+                // example instances: "forward", "backward", "closer", "further",
+                (10, "ModifyPositionZ"),
             },
             fewShotPairs: new List<Utils.FewShotPair>
             {
-                // ------------Added for CityDemo in MyShapeController, user can define their own through code or hierarchy------------
-                // new (
-                //     "make the buildings far, then change to red",
-                //     "ModifyColor: red, ModifyPosition: far"
-                // ),
-                // ------------Added for CityDemo in MyShapeController, user can define their own through code or hierarchy------------
                 new (
-                    "make it a bit taller and very close",
-                    "ModifyScale: a bit taller, ModifyPosition: very close"
+                    "make it a bit taller and move it to the left",
+                    "ModifyScale: a bit taller, ModifyPositionX: left"
                 ),
                 new (
-                    "make them shorter",
-                    "ModifyScale: shorter"
+                    "make them shorter and move them up",
+                    "ModifyScale: shorter, ModifyPositionY: up"
+                ),
+                new (
+                    "move it to the left",
+                    "ModifyPositionX: left"
+                ),
+                new (
+                    "move it higher",
+                    "ModifyPositionY: up"
+                ),
+                new (
+                    "move it backward",
+                    "ModifyPositionZ: backward"
+                ),
+                new (
+                    "move the spheres higher",
+                    "ModifyPositionY: higher"
+                ),
+                new (
+                    "move the objects up",
+                    "ModifyPositionY: up"
+                ),
+                new (
+                    "move them down",
+                    "ModifyPositionY: down"
+                ),
+                new (
+                    "move everything to the right",
+                    "ModifyPositionX: right"
+                ),
+                new (
+                    "move all objects forward",
+                    "ModifyPositionZ: forward"
                 ),
             }
         );
@@ -130,7 +156,7 @@ namespace Voice2Action
         
         /// <value>Contains the available atomic action properties to interact with for modification and their example usage.</value>
         /// <example>
-        /// Extract actions {"ModifyColor", "ModifyScale", "ModifyPosition"} from the input, separate by comma. <br/>
+        /// Extract actions {"ModifyScale", "ModifyPositionX", "ModifyPositionY", "ModifyPositionZ"} from the input, separate by comma. <br/>
         /// If some actions do not exist, do not print anything. <br/>
         /// Input: <br/>
         /// {more input examples} <br/>

@@ -1915,6 +1915,58 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_ModificationGroup.m_Properties.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_ModificationGroup.m_Properties.Array.data[1]
+      value: ModifyPositionX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_ModificationGroup.m_Properties.Array.data[2]
+      value: ModifyPositionY
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_ModificationGroup.m_Properties.Array.data[3]
+      value: ModifyPositionZ
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[0].m_Input
+      value: make it a bit taller and very close
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[1].m_Input
+      value: move it to the left
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[2].m_Input
+      value: move it higher
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[3].m_Input
+      value: move it forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[0].m_Output
+      value: 'ModifyScale: a bit taller, ModifyPosition: very close'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[1].m_Output
+      value: 'ModifyPositionX: left'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[2].m_Output
+      value: 'ModifyPositionY: higher'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120446427317689664, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      propertyPath: m_SelectionGroup.m_FewShotPairs.Array.data[3].m_Output
+      value: 'ModifyPositionZ: forward'
+      objectReference: {fileID: 0}
     - target: {fileID: 3926903176038997155, guid: cf8415a57570d6445966058b47aabc30, type: 3}
       propertyPath: m_Name
       value: Voice2Action
@@ -2014,7 +2066,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3549907379032642108, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2053679739}
   m_SourcePrefab: {fileID: 100100000, guid: cf8415a57570d6445966058b47aabc30, type: 3}
 --- !u!114 &1139098248 stripped
 MonoBehaviour:
@@ -2660,6 +2715,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2053679736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3549907379032642108, guid: cf8415a57570d6445966058b47aabc30, type: 3}
+  m_PrefabInstance: {fileID: 1139098247}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2053679739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053679736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55476be127dc71648bd9a018d79fc8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2097664281
 GameObject:
   m_ObjectHideFlags: 0

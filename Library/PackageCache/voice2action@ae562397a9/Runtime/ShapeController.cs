@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Voice2Action
 {
@@ -252,21 +252,97 @@ namespace Voice2Action
         /// <summary>
         /// Modify the scale of current object.
         /// </summary>
-        /// <param name="size">3-DOF Magnitude of modification.</param>
+        /// <param name="value">Magnitude of modification.</param>
         /// <returns>Denote modification success.</returns>
-        public bool ModifyScale(List<float> size)
+        public bool ModifyScale(float value)
         {
-            if (size == null) return false;
-            if (size.Count < 3) return false;
-            float x = size[0], y = size[1], z = size[2];
-            var controllerScale = transform.localScale;
-            if (x < 0) controllerScale.x *= 1f / (1f - x);
-            else controllerScale.x *= (1 + x);
-            if (y < 0) controllerScale.y *= 1f / (1f - y);
-            else controllerScale.y *= (1 + y);
-            if (z < 0) controllerScale.z *= 1f / (1f - z);
-            else controllerScale.z *= (1 + z);
-            transform.localScale = controllerScale;
+            var currentScale = transform.localScale;
+            var newScale = currentScale * (1 + Mathf.Abs(value));
+            
+            // If value is negative, we're scaling down
+            if (value < 0)
+            {
+                newScale = currentScale / (1 + Mathf.Abs(value));
+            }
+            
+            transform.localScale = newScale;
+            return true;
+        }
+
+        /// <summary>
+        /// Modify the position of current object along the X axis.
+        /// </summary>
+        /// <param name="value">Magnitude of modification (-1 for left, 1 for right)</param>
+        /// <returns>Denote modification success.</returns>
+        public bool ModifyPositionX(float value)
+        {
+            var playerPosition = player.transform.position;
+            var controllerPosition = transform.position;
+            float moveAmount = 0.5f; // Base movement amount
+            
+            if (value < 0)
+            {
+                // Move left (negative X)
+                controllerPosition.x -= moveAmount;
+            }
+            else
+            {
+                // Move right (positive X)
+                controllerPosition.x += moveAmount;
+            }
+            
+            transform.position = controllerPosition;
+            return true;
+        }
+
+        /// <summary>
+        /// Modify the position of current object along the Y axis.
+        /// </summary>
+        /// <param name="value">Magnitude of modification (-1 for down, 1 for up)</param>
+        /// <returns>Denote modification success.</returns>
+        public bool ModifyPositionY(float value)
+        {
+            var playerPosition = player.transform.position;
+            var controllerPosition = transform.position;
+            float moveAmount = 0.5f; // Base movement amount
+            
+            if (value < 0)
+            {
+                // Move down (negative Y)
+                controllerPosition.y -= moveAmount;
+            }
+            else
+            {
+                // Move up (positive Y)
+                controllerPosition.y += moveAmount;
+            }
+            
+            transform.position = controllerPosition;
+            return true;
+        }
+
+        /// <summary>
+        /// Modify the position of current object along the Z axis.
+        /// </summary>
+        /// <param name="value">Magnitude of modification (-1 for backward, 1 for forward)</param>
+        /// <returns>Denote modification success.</returns>
+        public bool ModifyPositionZ(float value)
+        {
+            var playerPosition = player.transform.position;
+            var controllerPosition = transform.position;
+            
+            if (value < 0)
+            {
+                // Move backward (away from player)
+                controllerPosition.z += -value / (1 - value) * (controllerPosition.z - playerPosition.z);
+            }
+            else
+            {
+                // Move forward (toward player)
+                controllerPosition.z -= value / (1 + value) * (controllerPosition.z - playerPosition.z);
+            }
+            
+            transform.position = controllerPosition;
             return true;
         }
 
@@ -275,23 +351,11 @@ namespace Voice2Action
         /// </summary>
         /// <param name="value">1-DOF magnitude of modification wrt. to the user.</param>
         /// <returns>Denote modification success.</returns>
-        public bool ModifyPosition(float value)
-        {
-            var playerPosition = player.transform.position;
-            var controllerPosition = transform.position;
-            if (value < 0)
-            {
-                controllerPosition.x -= -value / (1 - value) * (controllerPosition.x - playerPosition.x);
-                controllerPosition.z -= -value / (1 - value) * (controllerPosition.z - playerPosition.z);
-            }
-            else
-            {
-                controllerPosition.x += value / (1 + value) * (controllerPosition.x - playerPosition.x);
-                controllerPosition.z += value / (1 + value) * (controllerPosition.z - playerPosition.z);
-            }
-            transform.position = controllerPosition;
-            return true;
-        }
+        // public bool ModifyPosition(float value)
+        // {
+        //     // For backward compatibility, default to Y-axis movement
+        //     return ModifyPositionY(value);
+        // }
 
         #endregion
     }
