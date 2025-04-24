@@ -15,7 +15,7 @@
     "com.unity.xr.management": "4.4.0",
     "com.unity.xr.oculus": "4.5.1",
     "com.unity.xr.openxr": "1.14.0",
-    "voice2action": "https://github.com/yang-su2000/Voice2Action.git",
+    "voice2action": "https://github.com/paeb37/Voice2Action.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

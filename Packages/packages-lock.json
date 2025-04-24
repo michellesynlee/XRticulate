@@ -467,7 +467,7 @@
       "url": "https://package.openupm.com"
     },
     "voice2action": {
-      "version": "https://github.com/yang-su2000/Voice2Action.git",
+      "version": "https://github.com/paeb37/Voice2Action.git",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -525,7 +525,7 @@
         "com.unity.modules.wind": "1.0.0",
         "com.unity.modules.xr": "1.0.0"
       },
-      "hash": "ae562397a9df9ac100c62a609059624756eb4e52"
+      "hash": "f7e2d7552ead5b8eea9c304152290177b203c573"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
